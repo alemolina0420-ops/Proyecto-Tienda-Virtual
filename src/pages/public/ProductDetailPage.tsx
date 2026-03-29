@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, MessageCircle, Check, Package, Shield, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { ProductsProvider, useProducts } from '@/contexts/ProductsContext';
 
 // Inner component
@@ -262,7 +263,7 @@ function ProductDetailPageContent() {
                     </div>
                     <Button 
                       className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium shadow-lg shadow-emerald-900/20"
-                      onClick={(e) => {
+                      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                         e.stopPropagation();
                         window.open(`https://wa.me/${siteConfig.whatsappNumber?.replace(/\D/g, '') || ''}?text=${encodeURIComponent('Hola, deseo comprar el ' + relatedProduct.name + ' visto en la web')}`, '_blank');
                       }}
